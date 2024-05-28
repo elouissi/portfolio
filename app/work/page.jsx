@@ -16,20 +16,20 @@ import WorkSliderBtns from "@/components/WorkSliderBtns"
 const projects =[
     {
         num : "01",
-        category: "front-end",
-        titre:"projet 1",
-        description :"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta nemo amet quis? Non eos, maxime tempora voluptatibus, itaque modi, reiciendis doloremque dignissimos illum vitae saepe doloribus nostrum quibusdam sit facilis. " ,
-        stack:[{name:"Html 5"},{name:"css 3"},{name:"java script"}],
-        image:"/assets/work/thumb1.png",
+        category: "peoplePerTask",
+        titre:"peoplePerTask",
+        description :" 'PeoplePerTask' est un projet de commerce électronique axé sur la prestation de services entre particuliers. L'objectif principal de la plateforme est de permettre aux utilisateurs de proposer des tâches ou des services à effectuer, et aux autres utilisateurs de rechercher, réserver et payer pour ces services." ,
+        stack:[{name:"Html 5"},{name:"css 3"},{name:"java script"},{name:"tailWind css"}],
+        image:"/assets/work/peoplePertask.png",
         live:"",
-        github:"",
+        github:"https://github.com/elouissi/Free_lance_site_web_PeoplePerTask",
     },
     {
         num : "02",
-        category: "front-end",
-        titre:"projet 2",
-        description :"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta nemo amet quis? Non eos, maxime tempora voluptatibus, itaque modi, reiciendis doloremque dignissimos illum vitae saepe doloribus nostrum quibusdam sit facilis. " ,
-        stack:[{name:"Html 5"},{name:"css 3"},{name:"java script"}],
+        category: "You Wiki",
+        titre:"You Wiki",
+        description :"Le projet de gestion des wikis, similaire à Wikipedia, vise à créer une plateforme collaborative où les utilisateurs peuvent créer, modifier et organiser des articles sur une variété de sujets. L'objectif principal est de permettre aux utilisateurs de partager des connaissances et d'enrichir les contenus de manière collaborative " ,
+        stack:[{name:"Html 5"},{name:"css 3"},{name:"java script"},{name:"laravel"},{name:"ajax"},{name:"blade"}],
         image:"/assets/work/thumb1.png",
         live:"",
         github:"",
@@ -62,7 +62,7 @@ const Work = () =>{
                             {project.num}
                         </div>
                         <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                            {project.category} project
+                            {project.category}  
                         </h2>
                         <p className="text-white/60">
                             {project.description}
@@ -117,7 +117,7 @@ const Work = () =>{
                                             <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
                                                 <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                                                 <div className="relative w-full h-full">
-                                                    <Image src={project.image} fill className="object-cover" alt="" />
+                                                    <Image   src={project.image} fill className="object-cover" alt="" />
 
                                                  
                                                 </div>
