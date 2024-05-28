@@ -1,113 +1,125 @@
 "use client";
 
 import { Description } from '@radix-ui/react-dialog';
-import {FaHtml5,FaCss3,FaJs, FaReact,FaFigma,FaNodeJs,FaVuejs} from 'react-icons/fa'
+import {FaHtml5,FaCss3,FaJs, FaReact,FaFigma,FaNodeJs,FaVuejs,FaLaravel,FaBootstrap,FaGit} from 'react-icons/fa'
 import {SiTailwindcss,SiNextdotjs } from 'react-icons/si';
 
-const about ={
-    titre:'About me',
-    Description:"lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu",
-    info:[
-        {
-            fieldName:"Name",
-            fieldValue:"yassine elouissi"
-        },
-        {
-            fieldName:"télèphone",
-            fieldValue:"(+212) 7150 29272"
-        },
-        {
-            fieldName:"éxperiance",
-            fieldValue:"une année"
-        },
-        {
-            fieldName:"Nationality",
-            fieldValue:"marrocain"
-        },
-        {
-            fieldName:"Email",
-            fieldValue:"yassinelouissi67@gmail.com"
-        },
-        {
-            fieldName:"Language",
-            fieldValue:"arabe, francais, anglais, allemand"
-        },
-    ]
-}
-const experiance={
-    icon:'assets/resume/badge.svg',
-    titre:'Ma experiance',
-    Description:'lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu',
-    items:[
-        {
-            company:"Havet digitale",
-            position:"Full stack developer ",
-            duration:"2024/05 -- present"
-        },
-        {
-            company:"youcode",
-            position:"Full stack developer ",
-            duration:"2023 -- 2024"
-        },
-    ]
+    const about ={
+        titre:'About me',
+        Description:"lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu",
+        info:[
+            {
+                fieldName:"Name",
+                fieldValue:"yassine elouissi"
+            },
+            {
+                fieldName:"télèphone",
+                fieldValue:"(+212) 7150 29272"
+            },
+            {
+                fieldName:"éxperiance",
+                fieldValue:"une année"
+            },
+            {
+                fieldName:"Nationality",
+                fieldValue:"marrocain"
+            },
+            {
+                fieldName:"Email",
+                fieldValue:"yassinelouissi67@gmail.com"
+            },
+            {
+                fieldName:"Language",
+                fieldValue:"arabe, francais, anglais, allemand"
+            },
+        ]
+    }
+    const experiance={
+        icon:'assets/resume/badge.svg',
+        titre:'Ma experiance',
+        Description:'lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu',
+        items:[
+            {
+                company:"Havet digitale",
+                position:"Full stack developer ",
+                duration:"2024/05 -- present"
+            },
+            {
+                company:"youcode",
+                position:"Full stack developer ",
+                duration:"2023 -- 2024"
+            },
+        ]
 
-}
-const education={
-    icon:'assets/resume/cap.svg',
-    titre:'Ma education',
-    Description:'lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu',
-    items:[
-        {
-            ecole:"Abou laabass sabeti",
-            degree:"baccalauréat ",
-            duration:"2022-- 2023"
-        },
-        {
-            ecole:"Youcode",
-            degree:"Full stack Web Developement ",
-            duration:"2023-- 2024"
-        },
-    ]
+    }
+    const education={
+        icon:'assets/resume/cap.svg',
+        titre:'Ma education',
+        Description:'lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu',
+        items:[
+            {
+                ecole:"Abou laabass sabeti",
+                degree:"baccalauréat ",
+                duration:"2022-- 2023"
+            },
+            {
+                ecole:"Youcode",
+                degree:"Full stack Web Developement ",
+                duration:"2023-- 2024"
+            },
+        ]
 
-}
-const skills={
-    titre:"mes skills",
-    Description:'lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu',
-    skillList:[
-        {
-            icon:<FaHtml5/>,
-            name:"html 5"
-        },
-        {
-            icon:<FaCss3/>,
-            name:"css 3"
-        },
-        {
-            icon:<FaJs/>,
-            name:" javescript"
-        },
-        {
-            icon:<FaReact/>,
-            name:"Reac js"
-        },
-        {
-            icon:<FaFigma/>,
-            name:"Figma "
-        },
-        {
-            icon:<FaNodeJs/>,
-            name:"Node Js"
-        },
-        {
-            icon:<FaVuejs/>,
-            name:"Vue Js"
-        },
-        {
-            icon:<SiTailwindcss/>,
-            name:"TailWind css"
-        },
-    ]
-}
+    }
+    const skills={
+        titre:"mes skills",
+        Description:'lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu',
+        skillList:[
+            {
+                icon:<FaHtml5/>,
+                name:"html 5"
+            },
+            {
+                icon:<FaCss3/>,
+                name:"css 3"
+            },
+            {
+                icon:<FaJs/>,
+                name:" javescript"
+            },
+            {
+                icon:<FaReact/>,
+                name:"Reac js"
+            },
+            {
+                icon:<FaFigma/>,
+                name:"Figma "
+            },
+            {
+                icon:<FaNodeJs/>,
+                name:"Node Js"
+            },
+            {
+                icon:<FaVuejs/>,
+                name:"Vue Js"
+            },
+            {
+                icon:<SiTailwindcss/>,
+                name:"TailWind css"
+            },
+            {
+                icon:<FaLaravel/>,
+                name:"laravel"
+            },
+            {
+                icon:<FaBootstrap/>,
+                name:"Bootstrap"
+            },
+            {
+                icon:<FaGit/>,
+                name:"Git"
+            },
+        ]
+    }
 
 import {Tabs,TabsContent,TabsList,TabsTrigger} from '@/components/ui/tabs'
 import { Tooltip,TooltipContent,TooltipProvider,TooltipTrigger} from '@/components/ui/tooltip'
