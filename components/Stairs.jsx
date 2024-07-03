@@ -17,7 +17,7 @@ const reverseIndex = (index) =>{
     return totalSteps - index - 1
 }
 
-const Stairs = ()=>{
+const Stairs = ()=>{        
     return (
         <>
         {[...Array(6)].map((_, index) => {

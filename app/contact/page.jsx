@@ -11,17 +11,17 @@ const info = [
     {
         icon:<FaPhoneAlt/>,
         titre: 'telephone',
-        description: '(+212) 7150 29272'
+        description: '(+212) 7150-29272'
     },
     {
         icon:<FaEnvelope/>,
         titre: 'Email',
-        description: 'youremail@gmail.com'
+        description: 'yassinelouissi67@gmail.com'
     },
     {
         icon:<FaMapMarkedAlt/>,
         titre: 'adresse',
-        description: 'votre adresse ,votre numéro'
+        description: 'Hay Mohamadi Unite 1 NO 114 Marrakech'
     },
 
 ]
