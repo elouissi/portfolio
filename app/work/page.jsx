@@ -15,7 +15,7 @@ import WorkSliderBtns from "@/components/WorkSliderBtns"
  
 const projects =[
     {
-        num : "01",
+        num : "001",
         category: "peoplePerTask",
         titre:"peoplePerTask",
         description :" 'PeoplePerTask' est un projet de commerce électronique axé sur la prestation de services entre particuliers. L'objectif principal de la plateforme est de permettre aux utilisateurs de proposer des tâches ou des services à effectuer, et aux autres utilisateurs de rechercher, réserver et payer pour ces services." ,
@@ -30,17 +30,17 @@ const projects =[
         titre:"You Wiki",
         description :"Le projet de gestion des wikis, similaire à Wikipedia, vise à créer une plateforme collaborative où les utilisateurs peuvent créer, modifier et organiser des articles sur une variété de sujets. L'objectif principal est de permettre aux utilisateurs de partager des connaissances et d'enrichir les contenus de manière collaborative " ,
         stack:[{name:"Html 5"},{name:"css 3"},{name:"java script"},{name:"laravel"},{name:"ajax"},{name:"blade"}],
-        image:"/assets/work/thumb1.png",
+        image:"/assets/work/chrih.jpg",
         live:"",
         github:"",
     },
     {
         num : "03",
-        category: "front-end",
+        category: "Stadium Stream",
         titre:"projet 3",
-        description :"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta nemo amet quis? Non eos, maxime tempora voluptatibus, itaque modi, reiciendis doloremque dignissimos illum vitae saepe doloribus nostrum quibusdam sit facilis. " ,
+        description :"StadiumStream est un projet de site web de vente de billets pour la Coupe d'Afrique des Nations 2023. Le site offre aux fans de football la possibilité d'acheter des billets pour les matchs de leur choix, en ligne Le design du site est moderne et attrayant, avec des couleurs vives et des images dynamiques des stades et des équipes participant à la compétition. L'interface utilisateur est conviviale, avec des options de recherche intuitives pour trouver facilement les matchs, les dates et les stades.Les utilisateurs peuvent créer un compte pour gérer leurs achats de billets et recevoir des notifications sur les matchs à venir. Le site propose également des informations sur les équipes, les joueurs et les stades, ainsi que des articles et des analyses sur la compétition. " ,
         stack:[{name:"Next.js"},{name:"css 3"},{name:"java script"}],
-        image:"/assets/work/thumb1.png",
+        image:"/assets/work/stadiumstream.jpg",
         live:"",
         github:"",
     },
@@ -69,7 +69,7 @@ const Work = () =>{
                         </p>
                         <ul className="flex gap-4">
                             {project.stack.map((item, index)=>{
-                                return(  <li className="text-xl text-accent" key={index}>
+                                return(  <li class  Name="text-xl text-accent" key={index}>
                                             {item.name}
                                             {index !== project.stack.length -1 && ","}
                                         </li>

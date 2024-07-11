@@ -17,7 +17,9 @@ export default function Home() {
               <h1 className="h1 mb-6">
                 Bonjour je suis <br/> <span className="text-accent">Yassine Elouissi</span>
               </h1>
-              <p className="max-w-[500px] mb-9 text-white/80">j'excelle dans la création d'expériences numériques élégantes et je maîtrise divers langages et technologies de programmation</p>
+              <p className="max-w-[500px] mb-9 text-white/80">
+  j&apos;excelle dans la création d&apos;expériences numériques élégantes et je maîtrise divers langages et technologies de programmation
+</p>
               <div className="flex flex-col xl:flex-row items-center gap-8">
                 <a href="/assets/PDF/CV.pdf" download className="uppercase flex items-center gap-2">
               <Button variant="outline" size="lg" className="flex items-center gap-2">
