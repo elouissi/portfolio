@@ -8,7 +8,7 @@ const services = [
     {
         num:"01",
         titre:"web developement",
-        Description:"lorem kdjzkljdkje fej fljberlv crlvlkjrbvl rbvl nrbv runvrjfj vrmkjvbmrj rjbvmkj rm vrvmjknrmv ",
+        Description:" ",
         href:""
 
     },
