@@ -1,75 +1,81 @@
 "use client";
 
 import { Description } from '@radix-ui/react-dialog';
-import {FaHtml5,FaCss3,FaJs, FaReact,FaFigma,FaNodeJs,FaVuejs,FaLaravel,FaBootstrap,FaGit} from 'react-icons/fa'
-import {SiTailwindcss,SiNextdotjs } from 'react-icons/si';
+import {FaHtml5,FaCss3,FaJs, FaReact,FaFigma,FaNodeJs,FaVuejs,FaLaravel,FaBootstrap,FaGit, FaAngular} from 'react-icons/fa'
+import {SiTailwindcss,SiNextdotjs, SiSpringboot } from 'react-icons/si';
 
-    const about ={
-        titre:'About me',
-        Description:"lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu",
-        info:[
-            {
-                fieldName:"Name",
-                fieldValue:"yassine elouissi"
-            },
-            {
-                fieldName:"télèphone",
-                fieldValue:"(+212) 7150 29272"
-            },
-            {
-                fieldName:"éxperiance",
-                fieldValue:"une année"
-            },
-            {
-                fieldName:"Nationality",
-                fieldValue:"marrocain"
-            },
-            {
-                fieldName:"Email",
-                fieldValue:"yassinelouissi67@gmail.com"
-            },
-            {
-                fieldName:"Language",
-                fieldValue:"arabe, francais, anglais, allemand"
-            },
-        ]
-    }
-    const experiance={
-        icon:'assets/resume/badge.svg',
-        titre:'Ma experiance',
-        Description:'lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu',
-        items:[
-            {
-                company:"Havet digitale",
-                position:"Full stack developer ",
-                duration:"2024/05 -- present"
-            },
-            {
-                company:"youcode",
-                position:"Full stack developer ",
-                duration:"2023 -- 2024"
-            },
-        ]
 
-    }
-    const education={
-        icon:'assets/resume/cap.svg',
-        titre:'Ma education',
-        Description:'lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu',
-        items:[
-            {
-                ecole:"Abou laabass sabeti",
-                degree:"baccalauréat ",
-                duration:"2022-- 2023"
-            },
-            {
-                ecole:"Youcode",
-                degree:"Full stack Web Developement ",
-                duration:"2023-- 2024"
-            },
-        ]
+const about = {
+    titre: 'À propos de moi',
+    Description: "Je suis un développeur full stack passionné avec une expérience en création d'applications web et mobiles. Mes compétences couvrent le développement front-end et back-end avec des technologies modernes.",
+    info: [
+        {
+            fieldName: "Nom",
+            fieldValue: "Yassine Elouissi"
+        },
+        {
+            fieldName: "Téléphone",
+            fieldValue: "(+212) 7150 29272"
+        },
+        {
+            fieldName: "Expérience",
+            fieldValue: "2 an"
+        },
+        {
+            fieldName: "Nationalité",
+            fieldValue: "Marocain"
+        },
+        {
+            fieldName: "Email",
+            fieldValue: "yassinelouissi67@gmail.com"
+        },
+        {
+            fieldName: "Langues",
+            fieldValue: "Arabe, Français, Anglais, Allemand"
+        },
+    ]
+};
 
-    }
+const experiance = {
+    icon: 'assets/resume/badge.svg',
+    titre: 'Mon expérience',
+    Description: 'Voici un aperçu de mes expériences professionnelles.',
+    items: [
+        {
+            company: "Havet Digitale",
+            position: "Développeur Full Stack",
+            duration: "Mai 2024 -- Juillet 2024"
+        },
+        {
+            company: "YouCode",
+            position: "Développeur PHP/React js",
+            duration: "2023 -- 2024"
+        },
+        {
+            company: "YouCode",
+            position: "Développeur Java/Angular",
+            duration: "2024 -- présent"
+        }
+    ]
+};
+
+const education = {
+    icon: 'assets/resume/cap.svg',
+    titre: 'Ma formation',
+    Description: 'Voici un aperçu de mon parcours académique.',
+    items: [
+        {
+            ecole: "Abou Laabass Sabeti",
+            degree: "Baccalauréat en sciences",
+            duration: "2022 -- 2023"
+        },
+        {
+            ecole: "YouCode",
+            degree: "Développement Web Full Stack",
+            duration: "2023 -- présent"
+        },
+    ]
+};
     const skills={
         titre:"mes skills",
         Description:'lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu',
@@ -98,10 +104,7 @@ import {SiTailwindcss,SiNextdotjs } from 'react-icons/si';
                 icon:<FaNodeJs/>,
                 name:"Node Js"
             },
-            {
-                icon:<FaVuejs/>,
-                name:"Vue Js"
-            },
+        
             {
                 icon:<SiTailwindcss/>,
                 name:"TailWind css"
@@ -118,6 +121,14 @@ import {SiTailwindcss,SiNextdotjs } from 'react-icons/si';
                 icon:<FaGit/>,
                 name:"Git"
             },
+            {
+                icon: <FaAngular />,
+                name: "Angular"
+            },
+            {
+                icon: <SiSpringboot />,
+                name: "Spring Boot JEE"
+            }
         ]
     }
 
@@ -126,6 +137,7 @@ import { Tooltip,TooltipContent,TooltipProvider,TooltipTrigger} from '@/componen
 import { ScrollArea} from '@/components/ui/scroll-area';
 import { motion} from 'framer-motion'
 const Resume = () =>{
+
     return (
     <motion.div initial={{opacity:0}} animate={{opacity:1,transition:{delay:2.4,duration:0.4,ease:'easeIn'}}}
     className='min-h-[80vh] flex items-center justify-center py-12 xl:py-0'>
@@ -135,7 +147,7 @@ const Resume = () =>{
                 className='flex flex-col xl:flex-row xl:w-[1220px] gap-[60px]'
             >
             <TabsList className="flex flex-col w-full max-w-[480px] mx-auto xl:mx-0 gap-6">
-                <TabsTrigger value='experiance'>Experiance</TabsTrigger>
+                <TabsTrigger value='experiance'>Expérience</TabsTrigger>
                 <TabsTrigger value='education'>Education</TabsTrigger>
                 <TabsTrigger value='skills'>Skills</TabsTrigger>
                 <TabsTrigger value='à propos'>à propos moi </TabsTrigger>

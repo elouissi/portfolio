@@ -8,6 +8,9 @@ import Social from "@/components/Social";
 import Stats from "@/components/Stats";
 
 export default function Home() {
+
+  
+
   return(
     <section className="h-full">
       <div className="container mx-auto">
@@ -15,7 +18,7 @@ export default function Home() {
           <div className="text-center xl:text-left order-2 xl:order-none " >
               <span className="text-xl">développeur full stack</span>
               <h1 className="h1 mb-6">
-                Bonjour je suis <br/> <span className="text-accent">Yassine Elouissi</span>
+                  Bonjour je suis <br/> <span className="text-accent">Yassine Elouissi</span>
               </h1>
               <p className="max-w-[500px] mb-9 text-white/80">
   j&apos;excelle dans la création d&apos;expériences numériques élégantes et je maîtrise divers langages et technologies de programmation

@@ -7,8 +7,9 @@ const Photo = () => {
             <motion.div initial={{opacity:0}} animate={{opacity:1,transition:{delay:2,duration:0.4,ease:"easeIn"
             }}}>
                 <motion.div initial={{opacity:0}} animate={{opacity:1,transition:{delay:2.4,duration:0.4,ease:"easeInOut"
-            }}} className="w-[298px] h-[38px] xl:w-[498px] xl:h-[498px] mix-blend-lighten  xl:absolute  ">
-                    <Image src="/assets/image.png" priority quality={100} fill alt="mon image" className="object-contain"/>
+            }}} className="w-[298px] h-[20px] xl:w-[498px] xl:h-[498px] mix-blend-lighten  xl:absolute  ">
+                    <Image src="/assets/image.png" priority quality={100} fill alt="mon image"        style={{ top: '-10%' }}
+  className="object-contain"/>
                 </motion.div>
             </motion.div>
 

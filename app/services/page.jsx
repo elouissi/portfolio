@@ -3,37 +3,33 @@
 import {BsArrowDownRight} from "react-icons/bs"
 import Link from "next/link";
 import { Description } from "@radix-ui/react-dialog";
-
 const services = [
     {
-        num:"01",
-        titre:"web developement",
-        Description:" ",
-        href:""
-
+        num: "01",
+        titre: "Développement Web",
+        Description: "Création de sites vitrines, blogs, sites e-commerce et applications web en utilisant des technologies modernes comme Laravel, Spring Boot, React.js et Next.js.",
+        href: "https://monportfolio.com/web-developpement"
     },
     {
-        num:"02",
-        titre:"UI/UX Design",
-        Description:"lorem kdjzkljdkje fej fljberlv crlvlkjrbvl rbvl nrbv runvrjfj vrmkjvbmrj rjbvmkj rm vrvmjknrmv ",
-        href:""
-
+        num: "02",
+        titre: "UI/UX Design",
+        Description: "Design d'interfaces utilisateur modernes et intuitives avec une attention particulière à l'expérience utilisateur, en utilisant des outils comme Figma et Bootstrap, Tailwind.",
+        href: "https://monportfolio.com/ui-ux-design"
     },
     {
-        num:"03",
-        titre:"back-end developpeur",
-        Description:"lorem kdjzkljdkje fej fljberlv crlvlkjrbvl rbvl nrbv runvrjfj vrmkjvbmrj rjbvmkj rm vrvmjknrmv ",
-        href:""
-
+        num: "03",
+        titre: "Développement Back-End",
+        Description: "Conception et implémentation de back-ends robustes et sécurisés avec Laravel, Spring Boot, JEE, PostgreSQL et PHP, intégrant des APIs RESTful et des fonctionnalités avancées.",
+        href: "https://monportfolio.com/back-end"
     },
     {
-        num:"04",
-        titre:"front-end developpeur",
-        Description:"lorem kdjzkljdkje fej fljberlv crlvlkjrbvl rbvl nrbv runvrjfj vrmkjvbmrj rjbvmkj rm vrvmjknrmv ",
-        href:""
+        num: "04",
+        titre: "Développement Front-End",
+        Description: "Création de front-ends dynamiques et réactifs avec React.js, Next.js, Tailwind CSS et JavaScript, offrant des expériences utilisateur engageantes.",
+        href: "https://monportfolio.com/front-end"
+    }
+];
 
-    },
-]
 
 import { motion } from "framer-motion"
 
