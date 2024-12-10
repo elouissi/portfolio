@@ -25,7 +25,7 @@ const projects =[
         github:"https://github.com/elouissi/Free_lance_site_web_PeoplePerTask",
     },
     {
-        num : "02",
+        num : "002",
         category: "You Wiki",
         titre:"You Wiki",
         description :"Le projet de gestion des wikis, similaire à Wikipedia, vise à créer une plateforme collaborative où les utilisateurs peuvent créer, modifier et organiser des articles sur une variété de sujets. L'objectif principal est de permettre aux utilisateurs de partager des connaissances et d'enrichir les contenus de manière collaborative " ,
@@ -35,15 +35,35 @@ const projects =[
         github:"",
     },
     {
-        num : "03",
+        num : "003",
         category: "Stadium Stream",
         titre:"projet 3",
         description :"StadiumStream est un projet de site web de vente de billets pour la Coupe d'Afrique des Nations 2023. Le site offre aux fans de football la possibilité d'acheter des billets pour les matchs de leur choix, en ligne Le design du site est moderne et attrayant, avec des couleurs vives et des images dynamiques des stades et des équipes participant à la compétition. L'interface utilisateur est conviviale, avec des options de recherche intuitives pour trouver facilement les matchs, les dates et les stades.Les utilisateurs peuvent créer un compte pour gérer leurs achats de billets et recevoir des notifications sur les matchs à venir. Le site propose également des informations sur les équipes, les joueurs et les stades, ainsi que des articles et des analyses sur la compétition. " ,
-        stack:[{name:"Next.js"},{name:"css 3"},{name:"java script"}],
+        stack:[{name:"laravel"},{name:"css 3"},{name:"java script"}],
         image:"/assets/work/stadiumstream.jpg",
         live:"",
         github:"",
     },
+    {
+        num : "004",
+        category: "Caliharbor",
+        titre:"projet 4",
+        description :"'CALIHARBOR' offre aux fans de calisthenics la possibilité de créer un programme personnalisé, incluant les détails des exercices, les répétitions et les séries. Le site propose également un filtre permettant de personnaliser les programmes en fonction de l'âge, du nombre d'entraînements par jour, etc. De plus, il offre des programmes alimentaires adaptés aux revenus hebdomadaires des utilisateurs, ainsi que des inspirations et des sources de motivation dans ce domaine. " ,
+        stack:[{name:"laravel"},{name:"Bootstrap 3"},{name:"java script"}],
+        image:"/assets/work/caliharbor.png",
+        live:"",
+        github:"",
+    },
+    {
+        num : "005",
+        category: "Citronix",
+        titre:"projet 5",
+        description :"Le projet Citronix est une application de gestion conçue pour les exploitations agricoles spécialisées dans la culture des citrons. Il vise à optimiser la gestion des fermes en offrant des outils pour suivre la production, la récolte, et la vente des produits. Cette application permet également aux agriculteurs de suivre la productivité de leurs arbres en fonction de leur âge et d'assurer une meilleure rentabilité de leurs exploitations. " ,
+        stack:[{name:"Spring Boot"},{name:"Java"}],
+        image:"/assets/work/citronix.png",
+        live:"",
+        github:"",
+    }
 ]
 const Work = () =>{
     const [project, setProject] = useState(projects[0])
@@ -69,7 +89,7 @@ const Work = () =>{
                         </p>
                         <ul className="flex gap-4">
                             {project.stack.map((item, index)=>{
-                                return(  <li class  Name="text-xl text-accent" key={index}>
+                                return(  <li class  Name="text-xl text-red text-accent" key={index}>
                                             {item.name}
                                             {index !== project.stack.length -1 && ","}
                                         </li>
