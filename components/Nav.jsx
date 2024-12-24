@@ -13,17 +13,14 @@ const links =[
     },
    
     {
-        name:"resume",
+        name:"resumé",
         path:"/resume",
     },
     {
-        name:"work",
+        name:"projects",
         path:"/work",
     },
-    {
-        name:"contact",
-        path:"/contact",
-    },
+  
 ]
 
 const Nav = ()=>{

@@ -38,7 +38,7 @@ const about = {
 
 const experiance = {
     icon: 'assets/resume/badge.svg',
-    titre: 'Mon expérience',
+    titre: 'Mes expériences',
     Description: 'Voici un aperçu de mes expériences professionnelles.',
     items: [
         {
@@ -77,11 +77,11 @@ const education = {
     ]
 };
     const skills={
-        titre:"mes skills",
-        Description:'lorem uuiiu eubeoivbce cbech e cepibcpehv ch eic eh ceouhvc euuidiuized eu',
-        skillList:[
-            {
-                icon:<FaHtml5/>,
+            titre:"mes compétences",
+            Description:'Découvrez un aperçu de mes compétences techniques et créatives, développées au fil de mes expériences et projets. Que ce soit dans le développement web, la programmation ou la gestion de projets.',
+            skillList:[
+                {
+                    icon:<FaHtml5/>,
                 name:"html 5"
             },
             {
