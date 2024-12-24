@@ -85,7 +85,7 @@ const Contact = () => {
             })
         } catch (error) {
             console.error('Erreur:', error)
-            alert('Erreur lors de l\'envoi du message')
+            alert('Erreur lors de l&#39;envoi du message')
         }
         setLoading(false)
     }
@@ -104,9 +104,7 @@ const Contact = () => {
                     <div className="xl:h-[54%] order-2 xl:order-none">
                         <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
                             <h3 className="text-4xl text-accent">allez nous travaillons</h3>
-                            <p className="text-white/60">
-    Nous sommes là pour répondre à toutes vos questions et vous aider à trouver des solutions adaptées à vos besoins. N'hésitez pas à nous contacter pour toute demande de renseignement, assistance ou collaboration. Notre équipe est disponible pour échanger avec vous et vous fournir un service de qualité.
-</p>                            <div className="grid grid-cols md:grid-cols-2 gap-6">
+                            <p className="text-white/60">    Nous sommes là pour répondre à toutes vos questions et vous aider à trouver des solutions adaptées à vos besoins.Notre équipe est disponible pour échanger avec vous et vous fournir un service de qualité.</p>                            <div className="grid grid-cols md:grid-cols-2 gap-6">
                                 <Input 
                                     type="text" 
                                     name="nom" 
