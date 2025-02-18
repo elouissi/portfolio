@@ -24,7 +24,7 @@ export default function Home() {
   j&apos;excelle dans la création d&apos;expériences numériques élégantes et je maîtrise divers langages et technologies de programmation
 </p>
               <div className="flex flex-col xl:flex-row items-center gap-8">
-                <a href="/assets/PDF/CV3.pdf" download className="uppercase flex items-center gap-2">
+                <a href="/assets/PDF/cv_laravel.pdf" download className="uppercase flex items-center gap-2">
               <Button variant="outline" size="lg" className="flex items-center gap-2">
                 <span>Télécharger CV</span>
                 <FiDownload className="text-xl" />
