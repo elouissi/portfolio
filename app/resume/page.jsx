@@ -162,17 +162,17 @@ const Resume = () =>{
                 <TabsContent value="experiance" >
                 <div className='flex flex-col gap-[30px] text-center xl:text-left   '>
                         <h3 className='text-4xl font-bold'>{experiance.titre}</h3>
-                        <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{experiance.Description}</p>
+                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{experiance.Description}</p>
                         <ScrollArea className="h-[400px]">
                             <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
                                 {experiance.items.map((item,index)=>{
                                     return(
-                                        <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 '>
+                                        <li key={index} className='theme-panel border h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 '>
                                             <span className='text-accent'>{item.duration}</span>
                                             <h3 className='text-xl max-w-[260px] min-h-[60px] text-center lg:text-left'>{item.position}</h3>
                                             <div className='flex items-center gap-3'>
                                                 <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
-                                                <p className='text-white/60'>{item.company}</p>
+                                                <p className='muted-copy'>{item.company}</p>
 
                                             </div>
                                             
@@ -186,17 +186,17 @@ const Resume = () =>{
                 <TabsContent value="education" className="w-full">
                 <div className='flex flex-col gap-[30px] text-center xl:text-left '>
                         <h3 className='text-4xl font-bold'>{education.titre}</h3>
-                        <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{education.Description}</p>
+                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{education.Description}</p>
                         <ScrollArea className="h-[400px]">
                             <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
                                 {education.items.map((item,index)=>{
                                     return(
-                                        <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 '>
+                                        <li key={index} className='theme-panel border h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 '>
                                             <span className='text-accent'>{item.duration}</span>
                                             <h3 className='text-xl max-w-[260px] min-h-[60px] text-center lg:text-left'>{item.degree}</h3>
                                             <div className='flex items-center gap-3'>
                                                 <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
-                                                <p className='text-white/60'>{item.ecole}</p>
+                                                <p className='muted-copy'>{item.ecole}</p>
 
                                             </div>
                                             
@@ -211,7 +211,7 @@ const Resume = () =>{
                     <div className='flex flex-col gap-[30px] text-center xl:text-left'>
                         <div>
                             <h3 className='text-4xl font-bold' >{skills.titre}</h3>
-                            <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{skills.Description}</p>
+                            <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{skills.Description}</p>
                         </div>
                         <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 '>
                             {skills.skillList.map((skill,index)=>{
@@ -238,11 +238,11 @@ const Resume = () =>{
                 <TabsContent value="à propos" className="w-full text-center xl:text-left">
                     <div className='flex flex-col gap-[30px]'>
                         <h3 className='text-4xl font-bold'>{about.titre}</h3>
-                        <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{about.Description}</p>
+                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{about.Description}</p>
                         <ul className='grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0'>
                             {about.info.map((item,index)=>{
                                 return <li key={index}>
-                                    <span className='text-white/60'>{item.fieldName}</span>
+                                    <span className='muted-copy'>{item.fieldName}</span>
                                     <span className='text-xl'>  {item.fieldValue}</span>
 
                                 </li>

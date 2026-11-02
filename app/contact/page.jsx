@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrig
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa"
 import emailjs from '@emailjs/browser'
 import { motion } from "framer-motion"
+import { usePortfolio } from "@/components/PortfolioProvider"
 
 const info = [
     {
@@ -28,6 +29,7 @@ const info = [
 ]
 
 const Contact = () => {
+    const { t } = usePortfolio()
     const [formData, setFormData] = useState({
         nom: '',
         prenom: '',
@@ -102,20 +104,20 @@ const Contact = () => {
             <div className="container mx-auto">
                 <div className="flex flex-col xl:flex-row gap-[30px]">
                     <div className="xl:h-[54%] order-2 xl:order-none">
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-                            <h3 className="text-4xl text-accent">allez nous travaillons</h3>
-                            <p className="text-white/60">    Nous sommes là pour répondre à toutes vos questions et vous aider à trouver des solutions adaptées à vos besoins.Notre équipe est disponible pour échanger avec vous et vous fournir un service de qualité.</p>                            <div className="grid grid-cols md:grid-cols-2 gap-6">
+                        <form onSubmit={handleSubmit} className="theme-panel flex flex-col gap-6 rounded-xl border p-10">
+                            <h3 className="text-4xl text-accent">{t.contactTitle}</h3>
+                            <p className="muted-copy">{t.contactIntro}</p>                            <div className="grid grid-cols md:grid-cols-2 gap-6">
                                 <Input 
                                     type="text" 
                                     name="nom" 
-                                    placeholder="nom" 
+                                    placeholder={t.name} 
                                     value={formData.nom}
                                     onChange={handleChange}
                                 />
                                 <Input 
                                     type="text" 
                                     name="prenom" 
-                                    placeholder="prénom" 
+                                    placeholder={t.firstName} 
                                     value={formData.prenom}
                                     onChange={handleChange}
                                 />
@@ -129,14 +131,14 @@ const Contact = () => {
                                 <Input 
                                     type="tel" 
                                     name="phone" 
-                                    placeholder="numéro du téléphone" 
+                                    placeholder={t.phone} 
                                     value={formData.phone}
                                     onChange={handleChange}
                                 />
                             </div>
                             <Select onValueChange={handleServiceChange} value={formData.service}>
                                 <SelectTrigger className="w-full">
-                                    <SelectValue placeholder="Selectionner un service"/> 
+                                    <SelectValue placeholder={t.selectService}/> 
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
@@ -151,7 +153,7 @@ const Contact = () => {
                             <Textarea 
                                 className="h-[200px]" 
                                 name="message"
-                                placeholder="si vous avez un message a laissez" 
+                                placeholder={t.messagePlaceholder} 
                                 value={formData.message}
                                 onChange={handleChange}
                             />
@@ -161,7 +163,7 @@ const Contact = () => {
                                 className="w-[200px] h-[40px]"
                                 disabled={loading}
                             >
-                                {loading ? 'Envoi en cours...' : 'Envoyez le message'}
+                                {loading ? t.sending : t.send}
                             </Button>
                         </form>
                     </div>
@@ -170,11 +172,11 @@ const Contact = () => {
                             {info.map((item, index) => {
                                 return (
                                     <li key={index} className="flex items-center gap-6">
-                                        <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                                        <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] theme-panel text-accent rounded-md flex items-center justify-center">
                                             <div className="text-[28px]">{item.icon}</div>
                                         </div>
                                         <div className="flex-1">
-                                            <p className="text-white/60">{item.titre}</p>
+                                            <p className="muted-copy">{item.titre}</p>
                                             <h3 className="text-xl">{item.description}</h3>
                                         </div>
                                     </li>

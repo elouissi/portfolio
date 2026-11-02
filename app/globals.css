@@ -35,5 +35,8 @@
   .control-pill select { @apply cursor-pointer bg-transparent font-semibold outline-none; }
   .theme-button { @apply flex h-9 w-9 items-center justify-center rounded-full border border-[rgb(var(--line))] bg-[rgb(var(--surface))] transition-all hover:-translate-y-0.5 hover:border-[rgb(var(--accent))] hover:text-[rgb(var(--accent))]; }
   .surface-card { @apply rounded-2xl border border-[rgb(var(--line))] bg-[rgb(var(--surface))] shadow-[0_20px_60px_rgba(0,0,0,0.08)]; }
+  .muted-copy { color: rgb(var(--muted)); }
+  .theme-panel { background: rgb(var(--surface)); color: rgb(var(--foreground)); border-color: rgb(var(--line)); }
+  .theme-icon-button { background: color-mix(in srgb, rgb(var(--surface)) 88%, rgb(var(--foreground))); color: rgb(var(--foreground)); }
 }
 
