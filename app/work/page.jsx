@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import React , { useState } from "react";
+import React , { useRef, useState } from "react";
 import "swiper/css"
 
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
@@ -65,10 +65,10 @@ const projects =[
     }
 ]
 const Work = () =>{
+    const swiperRef = useRef(null)
     const [project, setProject] = useState(projects[0])
-    const handleSlideChange = (Swiper) =>{
-        const currentIndex = Swiper.activeIndex;
-
+    const handleSlideChange = (swiper) =>{
+        const currentIndex = swiper.realIndex ?? swiper.activeIndex;
         setProject(projects[currentIndex])
     }
     return (
@@ -88,7 +88,7 @@ const Work = () =>{
                         </p>
                         <ul className="flex gap-4">
                             {project.stack.map((item, index)=>{
-                                return(  <li class  Name="text-xl text-red text-accent" key={index}>
+                                return(  <li className="text-xl text-accent" key={index}>
                                             {item.name}
                                             {index !== project.stack.length -1 && ","}
                                         </li>
@@ -130,7 +130,7 @@ const Work = () =>{
                     
                 </div>
                 <div className="w-full xl:w-[50%]">
-                                <Swiper spaceBetween={18} slidesPerView={1} loop className="xl:h-[520px] mb-5" onSlideChange={handleSlideChange}>
+                                <Swiper spaceBetween={18} slidesPerView={1} loop className="xl:h-[520px] mb-5" onSwiper={(swiper) => { swiperRef.current = swiper }} onSlideChange={handleSlideChange}>
                                     {projects.map((project, index)=>{
                                         return <SwiperSlide key={index} className="w-full">
                                             <div className="h-[460px] relative group flex justify-center items-center surface-card overflow-hidden">
@@ -147,7 +147,7 @@ const Work = () =>{
                                 </Swiper>
                                 <div className="grid grid-cols-5 gap-2">
                                     {projects.map((item, index) => (
-                                        <button key={item.num} onClick={() => setProject(item)} type="button" className={`group relative aspect-[4/3] overflow-hidden rounded-lg border-2 transition-all ${item.num === project.num ? "border-accent opacity-100" : "border-transparent opacity-55 hover:opacity-100"}`} aria-label={`Afficher ${item.category}`}>
+                                        <button key={item.num} onClick={() => { setProject(item); swiperRef.current?.slideToLoop(index) }} type="button" className={`group relative aspect-[4/3] overflow-hidden rounded-lg border-2 transition-all ${item.num === project.num ? "border-accent opacity-100" : "border-transparent opacity-55 hover:opacity-100"}`} aria-label={`Afficher ${item.category}`}>
                                             <Image src={item.image} fill className="object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
                                         </button>
                                     ))}
