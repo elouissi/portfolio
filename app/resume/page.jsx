@@ -72,7 +72,12 @@ const education = {
         {
             ecole: "YouCode",
             degree: "Développement Web Full Stack",
-            duration: "2023 -- présent"
+            duration: "2023 -- 2025"
+        },
+        {
+            ecole: "NTiC SYBA — OFPPT",
+            degree: "Développement Web Full Stack",
+            duration: "2025 -- présent"
         },
     ]
 };
@@ -213,7 +218,7 @@ const Resume = () =>{
                                 return <li key={index} >
                                     <TooltipProvider delayDuration={100}>
                                         <Tooltip>
-                                            <TooltipTrigger className='w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center items-center'>
+                                            <TooltipTrigger className='surface-card w-full h-[150px] rounded-xl flex justify-center items-center'>
                                                 <div className='text-6xl   hover:text-accent   transition-all duration-300'>{skill.icon}</div>
                                             </TooltipTrigger>
 

@@ -5,6 +5,7 @@ import { Variable } from "lucide-react";
 import Header from "@/components/Header"
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
+import { PortfolioProvider } from "@/components/PortfolioProvider";
 
 const jetbrainsMono = JetBrains_Mono({ 
   subsets: ["latin"],
@@ -19,13 +20,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="fr" className="dark">
       <body className={jetbrainsMono.variable}>
-      <Header/>
-      <StairTransition/>
-       <PageTransition>
-        {children}
-       </PageTransition>
+      <PortfolioProvider>
+        <Header/>
+        <StairTransition/>
+        <PageTransition>{children}</PageTransition>
+      </PortfolioProvider>
       </body>
 
     </html>

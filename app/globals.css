@@ -2,39 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  body{
-    @apply font-primary bg-primary text-white leading-loose;
-  }
-  .h1{
-    @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold
-
-  }
-  .h2{
-    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold
-
-  }
-  .h3{
-    @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold
-
-  }
-  .text-outline{
-    -webkit-text-stroke:1px #ffffff;
-  }
-  .text-outline-hover{
-    -webkit-text-stroke:1px #00ff99;
-  }
-}
-  
 :root {
-  --font-jetbrainsMono: 'JetBrains Mono', monospace;
+  --background: 244 245 242;
+  --foreground: 25 28 28;
+  --surface: 255 255 252;
+  --muted: 93 101 99;
+  --line: 25 28 28 / 0.12;
+  --accent: 0 168 122;
 }
+.dark {
+  --background: 24 25 29;
+  --foreground: 241 243 238;
+  --surface: 34 35 41;
+  --muted: 174 180 175;
+  --line: 255 255 255 / 0.14;
+  --accent: 0 255 153;
+}
+
 @layer base {
-  .font-primary {
-    /* Define your font styles here */
-    font-family: 'Arial', sans-serif;
-  }
+  * { @apply border-[rgb(var(--line))]; }
+  body { @apply font-primary bg-[rgb(var(--background))] text-[rgb(var(--foreground))] leading-loose antialiased transition-colors duration-500; }
+  .h1 { @apply text-[48px] xl:text-[80px] leading-[1.05] font-semibold tracking-[-0.06em]; }
+  .h2 { @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold tracking-[-0.04em]; }
+  .h3 { @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold; }
+  .text-outline { -webkit-text-stroke: 1px rgb(var(--foreground)); color: transparent; }
+  .text-outline-hover { -webkit-text-stroke: 1px rgb(var(--accent)); }
+  ::selection { background: rgb(var(--accent)); color: rgb(var(--background)); }
+}
 
-
+@layer components {
+  .control-pill { @apply flex items-center gap-1.5 rounded-full border border-[rgb(var(--line))] bg-[rgb(var(--surface))] px-3 py-1.5 text-xs transition-colors; }
+  .control-pill select { @apply cursor-pointer bg-transparent font-semibold outline-none; }
+  .theme-button { @apply flex h-9 w-9 items-center justify-center rounded-full border border-[rgb(var(--line))] bg-[rgb(var(--surface))] transition-all hover:-translate-y-0.5 hover:border-[rgb(var(--accent))] hover:text-[rgb(var(--accent))]; }
+  .surface-card { @apply rounded-2xl border border-[rgb(var(--line))] bg-[rgb(var(--surface))] shadow-[0_20px_60px_rgba(0,0,0,0.08)]; }
 }
 
