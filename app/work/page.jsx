@@ -7,7 +7,6 @@ import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import { Tooltip,TooltipContent,TooltipProvider,TooltipTrigger} from '@/components/ui/tooltip';
 import Link from "next/link";
 import Image from "next/image";
-import { Item } from "@radix-ui/react-select";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; // Importez le fichier CSS de Swiper
 import WorkSliderBtns from "@/components/WorkSliderBtns"
@@ -73,7 +72,7 @@ const Work = () =>{
         setProject(projects[currentIndex])
     }
     return (
-    <motion.section initial={{opacity:0}} animate={{opacity:1,transition:{delay:2.4,duration:0.4,ease:"easeIn"}}} className="min-h-[88vh] flex flex-col justify-center py-12 xl:px-0">   
+    <motion.section initial={{opacity:0, y:18}} animate={{opacity:1, y:0, transition:{delay:0.15,duration:0.55,ease:"easeOut"}}} className="min-h-[88vh] flex flex-col justify-center py-12 xl:px-0">   
         <div className="container mx-auto">
             <div className="flex flex-col xl:flex-row xl:gap-[30px]">
                 <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
@@ -81,10 +80,10 @@ const Work = () =>{
                         <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
                             {project.num}
                         </div>
-                        <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                            {project.category}  
+                        <h2 className="text-[42px] font-bold leading-none group-hover:text-accent transition-all duration-500 capitalize">
+                            {project.category}
                         </h2>
-                        <p className="text-white/60">
+                        <p className="text-[15px] leading-relaxed opacity-70">
                             {project.description}
                         </p>
                         <ul className="flex gap-4">
@@ -131,13 +130,13 @@ const Work = () =>{
                     
                 </div>
                 <div className="w-full xl:w-[50%]">
-                                <Swiper spaceBetween={30} slidesPerView={1} className="xl:h-[520px] mb-12" onSlideChange={handleSlideChange}>
+                                <Swiper spaceBetween={18} slidesPerView={1} loop className="xl:h-[520px] mb-5" onSlideChange={handleSlideChange}>
                                     {projects.map((project, index)=>{
                                         return <SwiperSlide key={index} className="w-full">
-                                            <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                                            <div className="h-[460px] relative group flex justify-center items-center surface-card overflow-hidden">
                                                 <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                                                 <div className="relative w-full h-full">
-                                                    <Image   src={project.image} fill className="w-full" alt="" />
+                                                    <Image src={project.image} fill className="w-full object-cover transition-transform duration-700 group-hover:scale-105" alt={`Aperçu du projet ${project.category}`} />
 
                                                  
                                                 </div>
@@ -146,7 +145,13 @@ const Work = () =>{
                                     })}
                                     <WorkSliderBtns containerStyles="flex gap-2 absolute right-0 bottom-[calc(50_-_22px)] xl:bottom-0 z-20 w-full justufy-between xl:w-max xl:justify-none "btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"/>
                                 </Swiper>
-                                 
+                                <div className="grid grid-cols-5 gap-2">
+                                    {projects.map((item, index) => (
+                                        <button key={item.num} onClick={() => setProject(item)} type="button" className={`group relative aspect-[4/3] overflow-hidden rounded-lg border-2 transition-all ${item.num === project.num ? "border-accent opacity-100" : "border-transparent opacity-55 hover:opacity-100"}`} aria-label={`Afficher ${item.category}`}>
+                                            <Image src={item.image} fill className="object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
+                                        </button>
+                                    ))}
+                                </div>
                 </div>
             </div>
         </div>

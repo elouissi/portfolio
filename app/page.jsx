@@ -1,32 +1,35 @@
 
-import {Button} from "@/components/ui/button";
+"use client";
+
+import { Button } from "@/components/ui/button";
 import {FiDownload} from "react-icons/fi";
 
 //component
 import Photo from "@/components/Photo";
 import Social from "@/components/Social";
 import Stats from "@/components/Stats";
+import { usePortfolio } from "@/components/PortfolioProvider";
 
 export default function Home() {
+  const { t } = usePortfolio();
 
-  
 
   return(
     <section className="h-full">
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none " >
-              <span className="text-xl">développeur full stack</span>
-              <h1 className="h1 mb-6">
-                  Bonjour je suis <br/> <span className="text-accent">Yassine Elouissi</span>
+              <span className="text-xl text-accent">{t.role}</span>
+              <h1 className="h1 mb-6 mt-3">
+                  {t.greeting} <br/> <span className="text-accent">Yassine Elouissi</span>
               </h1>
               <p className="max-w-[500px] mb-9 text-white/80">
-  j&apos;excelle dans la création d&apos;expériences numériques élégantes et je maîtrise divers langages et technologies de programmation
+  {t.intro}
 </p>
               <div className="flex flex-col xl:flex-row items-center gap-8">
                 <a href="/assets/PDF/cv_laravel.pdf" download className="uppercase flex items-center gap-2">
               <Button variant="outline" size="lg" className="flex items-center gap-2">
-                <span>Télécharger CV</span>
+                <span>{t.cv}</span>
                 <FiDownload className="text-xl" />
               </Button>
             </a>
