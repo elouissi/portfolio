@@ -141,7 +141,16 @@ import {Tabs,TabsContent,TabsList,TabsTrigger} from '@/components/ui/tabs'
 import { Tooltip,TooltipContent,TooltipProvider,TooltipTrigger} from '@/components/ui/tooltip'
 import { ScrollArea} from '@/components/ui/scroll-area';
 import { motion} from 'framer-motion'
+import { usePortfolio } from '@/components/PortfolioProvider'
+const resumeContent = {
+    fr: { about: { title: 'À propos de moi', description: "Je suis un développeur full stack passionné avec une expérience en création d'applications web et mobiles.", info: [['Nom','Yassine Elouissi'],['Téléphone','(+212) 7150 29272'],['Expérience','2 ans'],['Nationalité','Marocain'],['Email','yassinelouissi67@gmail.com'],['Langues','Arabe, Français, Anglais, Allemand']] }, experience: [{ company: 'Havet Digitale', position: 'Développeur Full Stack', duration: 'Mai 2024 — Juillet 2024' }, { company: 'YouCode', position: 'Développeur PHP/React JS', duration: '2023 — 2024' }, { company: 'YouCode', position: 'Développeur Java/Angular', duration: '2024 — présent' }], education: [{ ecole: 'Abou Laabass Sabeti', degree: 'Baccalauréat en sciences', duration: '2022 — 2023' }, { ecole: 'YouCode', degree: 'Développement Web Full Stack', duration: '2023 — 2025' }, { ecole: 'NTiC SYBA — OFPPT', degree: 'Développement Web Full Stack', duration: '2025 — présent' }] },
+    en: { about: { title: 'About me', description: 'I am a passionate full-stack developer experienced in building web and mobile applications.', info: [['Name','Yassine Elouissi'],['Phone','(+212) 7150 29272'],['Experience','2 years'],['Nationality','Moroccan'],['Email','yassinelouissi67@gmail.com'],['Languages','Arabic, French, English, German']] }, experience: [{ company: 'Havet Digitale', position: 'Full Stack Developer', duration: 'May 2024 — July 2024' }, { company: 'YouCode', position: 'PHP/React JS Developer', duration: '2023 — 2024' }, { company: 'YouCode', position: 'Java/Angular Developer', duration: '2024 — present' }], education: [{ ecole: 'Abou Laabass Sabeti', degree: 'Science Baccalaureate', duration: '2022 — 2023' }, { ecole: 'YouCode', degree: 'Full Stack Web Development', duration: '2023 — 2025' }, { ecole: 'NTiC SYBA — OFPPT', degree: 'Full Stack Web Development', duration: '2025 — present' }] },
+    ar: { about: { title: 'نبذة عني', description: 'أنا مطور Full Stack شغوف ولدي خبرة في إنشاء تطبيقات الويب والهاتف.', info: [['الاسم','ياسين العلويشي'],['الهاتف','(+212) 7150 29272'],['الخبرة','سنتان'],['الجنسية','مغربي'],['البريد الإلكتروني','yassinelouissi67@gmail.com'],['اللغات','العربية، الفرنسية، الإنجليزية، الألمانية']] }, experience: [{ company: 'Havet Digitale', position: 'مطور Full Stack', duration: 'ماي 2024 — يوليوز 2024' }, { company: 'YouCode', position: 'مطور PHP/React JS', duration: '2023 — 2024' }, { company: 'YouCode', position: 'مطور Java/Angular', duration: '2024 — الآن' }], education: [{ ecole: 'أبو العباس السبتي', degree: 'بكالوريا علوم', duration: '2022 — 2023' }, { ecole: 'YouCode', degree: 'تطوير الويب Full Stack', duration: '2023 — 2025' }, { ecole: 'NTiC SYBA — OFPPT', degree: 'تطوير الويب Full Stack', duration: '2025 — الآن' }] }
+};
+
 const Resume = () =>{
+    const { t, language } = usePortfolio()
+    const copy = resumeContent[language] || resumeContent.fr
 
     return (
     <motion.div initial={{opacity:0}} animate={{opacity:1,transition:{delay:2.4,duration:0.4,ease:'easeIn'}}}
@@ -152,27 +161,27 @@ const Resume = () =>{
                 className='flex flex-col xl:flex-row xl:w-[1220px] gap-[60px]'
             >
             <TabsList className="flex flex-col w-full max-w-[480px] mx-auto xl:mx-0 gap-6">
-                <TabsTrigger value='experiance'>Expérience</TabsTrigger>
-                <TabsTrigger value='education'>Education</TabsTrigger>
-                <TabsTrigger value='skills'>Skills</TabsTrigger>
-                <TabsTrigger value='à propos'>à propos moi </TabsTrigger>
+                <TabsTrigger value='experiance'>{t.experience}</TabsTrigger>
+                <TabsTrigger value='education'>{t.education}</TabsTrigger>
+                <TabsTrigger value='skills'>{t.skills}</TabsTrigger>
+                <TabsTrigger value='à propos'>{t.aboutMe}</TabsTrigger>
             </TabsList>
 
             <div className='min-h-[70vh] w-full'>
                 <TabsContent value="experiance" >
                 <div className='flex flex-col gap-[30px] text-center xl:text-left   '>
-                        <h3 className='text-4xl font-bold'>{experiance.titre}</h3>
-                        <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{experiance.Description}</p>
+                        <h3 className='text-4xl font-bold'>{t.myExperience}</h3>
+                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{t.experienceIntro}</p>
                         <ScrollArea className="h-[400px]">
                             <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
-                                {experiance.items.map((item,index)=>{
+                                {copy.experience.map((item,index)=>{
                                     return(
-                                        <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 '>
+                                        <li key={index} className='theme-panel border h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 '>
                                             <span className='text-accent'>{item.duration}</span>
                                             <h3 className='text-xl max-w-[260px] min-h-[60px] text-center lg:text-left'>{item.position}</h3>
                                             <div className='flex items-center gap-3'>
                                                 <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
-                                                <p className='text-white/60'>{item.company}</p>
+                                                <p className='muted-copy'>{item.company}</p>
 
                                             </div>
                                             
@@ -185,18 +194,18 @@ const Resume = () =>{
                 </TabsContent>
                 <TabsContent value="education" className="w-full">
                 <div className='flex flex-col gap-[30px] text-center xl:text-left '>
-                        <h3 className='text-4xl font-bold'>{education.titre}</h3>
-                        <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{education.Description}</p>
+                        <h3 className='text-4xl font-bold'>{t.myEducation}</h3>
+                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{t.educationIntro}</p>
                         <ScrollArea className="h-[400px]">
                             <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
-                                {education.items.map((item,index)=>{
+                                {copy.education.map((item,index)=>{
                                     return(
-                                        <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 '>
+                                        <li key={index} className='theme-panel border h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 '>
                                             <span className='text-accent'>{item.duration}</span>
                                             <h3 className='text-xl max-w-[260px] min-h-[60px] text-center lg:text-left'>{item.degree}</h3>
                                             <div className='flex items-center gap-3'>
                                                 <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
-                                                <p className='text-white/60'>{item.ecole}</p>
+                                                <p className='muted-copy'>{item.ecole}</p>
 
                                             </div>
                                             
@@ -210,8 +219,8 @@ const Resume = () =>{
                 <TabsContent value="skills" className="w-full">
                     <div className='flex flex-col gap-[30px] text-center xl:text-left'>
                         <div>
-                            <h3 className='text-4xl font-bold' >{skills.titre}</h3>
-                            <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{skills.Description}</p>
+                            <h3 className='text-4xl font-bold' >{t.mySkills}</h3>
+                            <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{t.skillsIntro}</p>
                         </div>
                         <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 '>
                             {skills.skillList.map((skill,index)=>{
@@ -237,13 +246,13 @@ const Resume = () =>{
                 </TabsContent>
                 <TabsContent value="à propos" className="w-full text-center xl:text-left">
                     <div className='flex flex-col gap-[30px]'>
-                        <h3 className='text-4xl font-bold'>{about.titre}</h3>
-                        <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{about.Description}</p>
+                        <h3 className='text-4xl font-bold'>{t.aboutMe}</h3>
+                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{copy.about.description}</p>
                         <ul className='grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0'>
-                            {about.info.map((item,index)=>{
+                            {copy.about.info.map((item,index)=>{
                                 return <li key={index}>
-                                    <span className='text-white/60'>{item.fieldName}</span>
-                                    <span className='text-xl'>  {item.fieldValue}</span>
+                                    <span className='muted-copy'>{item[0]}</span>
+                                    <span className='text-xl'>  {item[1]}</span>
 
                                 </li>
                             })}

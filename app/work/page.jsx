@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import React , { useState } from "react";
+import React , { useRef, useState } from "react";
 import "swiper/css"
 
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; // Importez le fichier CSS de Swiper
 import WorkSliderBtns from "@/components/WorkSliderBtns"
+import { usePortfolio } from '@/components/PortfolioProvider'
 
  
 const projects =[
@@ -64,11 +65,19 @@ const projects =[
         github:"",
     }
 ]
-const Work = () =>{
-    const [project, setProject] = useState(projects[0])
-    const handleSlideChange = (Swiper) =>{
-        const currentIndex = Swiper.activeIndex;
+const projectTranslations = {
+    fr: { '001': { category: 'PeoplePerTask', description: "Plateforme de services entre particuliers pour proposer, rechercher, réserver et payer des tâches." }, '002': { category: 'You Wiki', description: 'Plateforme collaborative de création, modification et organisation d’articles.' }, '003': { category: 'Stadium Stream', description: 'Site de vente de billets pour la Coupe d’Afrique des Nations 2023.' }, '004': { category: 'Caliharbor', description: 'Programmes personnalisés de calisthenics et de nutrition adaptés à chaque utilisateur.' }, '005': { category: 'Citronix', description: 'Application de gestion pour optimiser la production, la récolte et la vente des exploitations agricoles.' } },
+    en: { '001': { category: 'PeoplePerTask', description: 'A peer-to-peer services platform to offer, find, book and pay for tasks.' }, '002': { category: 'You Wiki', description: 'A collaborative platform for creating, editing and organizing knowledge articles.' }, '003': { category: 'Stadium Stream', description: 'A ticketing website for the 2023 Africa Cup of Nations.' }, '004': { category: 'Caliharbor', description: 'Personalized calisthenics and nutrition programs tailored to every user.' }, '005': { category: 'Citronix', description: 'A management application that optimizes farm production, harvest and sales.' } },
+    ar: { '001': { category: 'PeoplePerTask', description: 'منصة خدمات بين الأفراد لعرض المهام والبحث عنها وحجزها وأدائها.' }, '002': { category: 'You Wiki', description: 'منصة تعاونية لإنشاء المقالات وتعديلها وتنظيم المعرفة.' }, '003': { category: 'Stadium Stream', description: 'موقع لبيع تذاكر كأس أمم إفريقيا 2023.' }, '004': { category: 'Caliharbor', description: 'برامج مخصصة للكاليستينيكس والتغذية تناسب كل مستخدم.' }, '005': { category: 'Citronix', description: 'تطبيق لإدارة المزارع وتحسين الإنتاج والحصاد والمبيعات.' } }
+};
 
+const Work = () =>{
+    const { t, language } = usePortfolio()
+    const swiperRef = useRef(null)
+    const [project, setProject] = useState(projects[0])
+    const localizedProject = projectTranslations[language]?.[project.num] || projectTranslations.fr[project.num]
+    const handleSlideChange = (swiper) =>{
+        const currentIndex = swiper.realIndex ?? swiper.activeIndex;
         setProject(projects[currentIndex])
     }
     return (
@@ -81,14 +90,14 @@ const Work = () =>{
                             {project.num}
                         </div>
                         <h2 className="text-[42px] font-bold leading-none group-hover:text-accent transition-all duration-500 capitalize">
-                            {project.category}
+                            {localizedProject.category}
                         </h2>
                         <p className="text-[15px] leading-relaxed opacity-70">
-                            {project.description}
+                            {localizedProject.description}
                         </p>
                         <ul className="flex gap-4">
                             {project.stack.map((item, index)=>{
-                                return(  <li class  Name="text-xl text-red text-accent" key={index}>
+                                return(  <li className="text-xl text-accent" key={index}>
                                             {item.name}
                                             {index !== project.stack.length -1 && ","}
                                         </li>
@@ -96,13 +105,13 @@ const Work = () =>{
                             })}
                         </ul>
 
-                        <div className="border border-white/20"></div>
+                        <div className="border border-[rgb(var(--line))]"></div>
                         <div className="flex items-center gap-4"> 
                             <Link href={project.live}>
                                 <TooltipProvider delayDuration={100}>
                                     <Tooltip>
-                                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                <BsArrowUpRight className="text-white text-3xl group-hover:text-accent"/>
+                                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full theme-icon-button flex justify-center items-center group">
+                                                <BsArrowUpRight className="text-[rgb(var(--foreground))] text-3xl group-hover:text-accent"/>
                                         </TooltipTrigger>
                                         <TooltipContent>
                                             <p>Live project</p>
@@ -113,8 +122,8 @@ const Work = () =>{
                             <Link href={project.github}>
                                 <TooltipProvider delayDuration={100}>
                                     <Tooltip>
-                                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                <BsGithub className="text-white text-3xl group-hover:text-accent"/>
+                                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full theme-icon-button flex justify-center items-center group">
+                                                <BsGithub className="text-[rgb(var(--foreground))] text-3xl group-hover:text-accent"/>
                                         </TooltipTrigger>
                                         <TooltipContent>
                                             <p>github repository                                           
@@ -130,13 +139,13 @@ const Work = () =>{
                     
                 </div>
                 <div className="w-full xl:w-[50%]">
-                                <Swiper spaceBetween={18} slidesPerView={1} loop className="xl:h-[520px] mb-5" onSlideChange={handleSlideChange}>
+                                <Swiper spaceBetween={18} slidesPerView={1} loop className="xl:h-[520px] mb-5" onSwiper={(swiper) => { swiperRef.current = swiper }} onSlideChange={handleSlideChange}>
                                     {projects.map((project, index)=>{
                                         return <SwiperSlide key={index} className="w-full">
                                             <div className="h-[460px] relative group flex justify-center items-center surface-card overflow-hidden">
                                                 <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                                                 <div className="relative w-full h-full">
-                                                    <Image src={project.image} fill className="w-full object-cover transition-transform duration-700 group-hover:scale-105" alt={`Aperçu du projet ${project.category}`} />
+                                                    <Image src={project.image} fill className="w-full object-cover transition-transform duration-700 group-hover:scale-105" alt={`Aperçu du projet ${localizedProject.category}`} />
 
                                                  
                                                 </div>
@@ -147,7 +156,7 @@ const Work = () =>{
                                 </Swiper>
                                 <div className="grid grid-cols-5 gap-2">
                                     {projects.map((item, index) => (
-                                        <button key={item.num} onClick={() => setProject(item)} type="button" className={`group relative aspect-[4/3] overflow-hidden rounded-lg border-2 transition-all ${item.num === project.num ? "border-accent opacity-100" : "border-transparent opacity-55 hover:opacity-100"}`} aria-label={`Afficher ${item.category}`}>
+                                        <button key={item.num} onClick={() => { setProject(item); swiperRef.current?.slideToLoop(index) }} type="button" className={`group relative aspect-[4/3] overflow-hidden rounded-lg border-2 transition-all ${item.num === project.num ? "border-accent opacity-100" : "border-transparent opacity-55 hover:opacity-100"}`} aria-label={`Afficher ${item.category}`}>
                                             <Image src={item.image} fill className="object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
                                         </button>
                                     ))}
