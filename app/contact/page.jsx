@@ -13,7 +13,7 @@ import { usePortfolio } from "@/components/PortfolioProvider"
 const info = [
     {
         icon: <FaPhoneAlt />,
-        titre: 'telephone',
+        titre: 'phone',
         description: '(+212) 7150-29272'
     },
     {
@@ -23,7 +23,7 @@ const info = [
     },
     {
         icon: <FaMapMarkedAlt />,
-        titre: 'adresse',
+        titre: 'address',
         description: 'Hay Mohamadi Unite 1 NO 114 Marrakech'
     },
 ]
@@ -76,7 +76,7 @@ const Contact = () => {
                 'kDjI6D2CGky8LVDgW' // Remplacez par votre Public Key
             )
 
-            alert('Message envoyé avec succès!')
+            alert(t.success)
             setFormData({
                 nom: '',
                 prenom: '',
@@ -87,7 +87,7 @@ const Contact = () => {
             })
         } catch (error) {
             console.error('Erreur:', error)
-            alert('Erreur lors de l&#39;envoi du message')
+            alert(t.error)
         }
         setLoading(false)
     }
@@ -124,7 +124,7 @@ const Contact = () => {
                                 <Input 
                                     type="email" 
                                     name="email" 
-                                    placeholder="Email" 
+                                    placeholder="Email" aria-label="Email" 
                                     value={formData.email}
                                     onChange={handleChange}
                                 />
@@ -176,7 +176,7 @@ const Contact = () => {
                                             <div className="text-[28px]">{item.icon}</div>
                                         </div>
                                         <div className="flex-1">
-                                            <p className="muted-copy">{item.titre}</p>
+                                            <p className="muted-copy">{item.titre === 'phone' ? t.phone : item.titre === 'address' ? t.address : 'Email'}</p>
                                             <h3 className="text-xl">{item.description}</h3>
                                         </div>
                                     </li>

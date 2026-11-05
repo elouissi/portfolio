@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; // Importez le fichier CSS de Swiper
 import WorkSliderBtns from "@/components/WorkSliderBtns"
+import { usePortfolio } from '@/components/PortfolioProvider'
 
  
 const projects =[
@@ -64,9 +65,17 @@ const projects =[
         github:"",
     }
 ]
+const projectTranslations = {
+    fr: { '001': { category: 'PeoplePerTask', description: "Plateforme de services entre particuliers pour proposer, rechercher, réserver et payer des tâches." }, '002': { category: 'You Wiki', description: 'Plateforme collaborative de création, modification et organisation d’articles.' }, '003': { category: 'Stadium Stream', description: 'Site de vente de billets pour la Coupe d’Afrique des Nations 2023.' }, '004': { category: 'Caliharbor', description: 'Programmes personnalisés de calisthenics et de nutrition adaptés à chaque utilisateur.' }, '005': { category: 'Citronix', description: 'Application de gestion pour optimiser la production, la récolte et la vente des exploitations agricoles.' } },
+    en: { '001': { category: 'PeoplePerTask', description: 'A peer-to-peer services platform to offer, find, book and pay for tasks.' }, '002': { category: 'You Wiki', description: 'A collaborative platform for creating, editing and organizing knowledge articles.' }, '003': { category: 'Stadium Stream', description: 'A ticketing website for the 2023 Africa Cup of Nations.' }, '004': { category: 'Caliharbor', description: 'Personalized calisthenics and nutrition programs tailored to every user.' }, '005': { category: 'Citronix', description: 'A management application that optimizes farm production, harvest and sales.' } },
+    ar: { '001': { category: 'PeoplePerTask', description: 'منصة خدمات بين الأفراد لعرض المهام والبحث عنها وحجزها وأدائها.' }, '002': { category: 'You Wiki', description: 'منصة تعاونية لإنشاء المقالات وتعديلها وتنظيم المعرفة.' }, '003': { category: 'Stadium Stream', description: 'موقع لبيع تذاكر كأس أمم إفريقيا 2023.' }, '004': { category: 'Caliharbor', description: 'برامج مخصصة للكاليستينيكس والتغذية تناسب كل مستخدم.' }, '005': { category: 'Citronix', description: 'تطبيق لإدارة المزارع وتحسين الإنتاج والحصاد والمبيعات.' } }
+};
+
 const Work = () =>{
+    const { t, language } = usePortfolio()
     const swiperRef = useRef(null)
     const [project, setProject] = useState(projects[0])
+    const localizedProject = projectTranslations[language]?.[project.num] || projectTranslations.fr[project.num]
     const handleSlideChange = (swiper) =>{
         const currentIndex = swiper.realIndex ?? swiper.activeIndex;
         setProject(projects[currentIndex])
@@ -81,10 +90,10 @@ const Work = () =>{
                             {project.num}
                         </div>
                         <h2 className="text-[42px] font-bold leading-none group-hover:text-accent transition-all duration-500 capitalize">
-                            {project.category}
+                            {localizedProject.category}
                         </h2>
                         <p className="text-[15px] leading-relaxed opacity-70">
-                            {project.description}
+                            {localizedProject.description}
                         </p>
                         <ul className="flex gap-4">
                             {project.stack.map((item, index)=>{
@@ -136,7 +145,7 @@ const Work = () =>{
                                             <div className="h-[460px] relative group flex justify-center items-center surface-card overflow-hidden">
                                                 <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                                                 <div className="relative w-full h-full">
-                                                    <Image src={project.image} fill className="w-full object-cover transition-transform duration-700 group-hover:scale-105" alt={`Aperçu du projet ${project.category}`} />
+                                                    <Image src={project.image} fill className="w-full object-cover transition-transform duration-700 group-hover:scale-105" alt={`Aperçu du projet ${localizedProject.category}`} />
 
                                                  
                                                 </div>

@@ -142,8 +142,15 @@ import { Tooltip,TooltipContent,TooltipProvider,TooltipTrigger} from '@/componen
 import { ScrollArea} from '@/components/ui/scroll-area';
 import { motion} from 'framer-motion'
 import { usePortfolio } from '@/components/PortfolioProvider'
+const resumeContent = {
+    fr: { about: { title: 'À propos de moi', description: "Je suis un développeur full stack passionné avec une expérience en création d'applications web et mobiles.", info: [['Nom','Yassine Elouissi'],['Téléphone','(+212) 7150 29272'],['Expérience','2 ans'],['Nationalité','Marocain'],['Email','yassinelouissi67@gmail.com'],['Langues','Arabe, Français, Anglais, Allemand']] }, experience: [{ company: 'Havet Digitale', position: 'Développeur Full Stack', duration: 'Mai 2024 — Juillet 2024' }, { company: 'YouCode', position: 'Développeur PHP/React JS', duration: '2023 — 2024' }, { company: 'YouCode', position: 'Développeur Java/Angular', duration: '2024 — présent' }], education: [{ ecole: 'Abou Laabass Sabeti', degree: 'Baccalauréat en sciences', duration: '2022 — 2023' }, { ecole: 'YouCode', degree: 'Développement Web Full Stack', duration: '2023 — 2025' }, { ecole: 'NTiC SYBA — OFPPT', degree: 'Développement Web Full Stack', duration: '2025 — présent' }] },
+    en: { about: { title: 'About me', description: 'I am a passionate full-stack developer experienced in building web and mobile applications.', info: [['Name','Yassine Elouissi'],['Phone','(+212) 7150 29272'],['Experience','2 years'],['Nationality','Moroccan'],['Email','yassinelouissi67@gmail.com'],['Languages','Arabic, French, English, German']] }, experience: [{ company: 'Havet Digitale', position: 'Full Stack Developer', duration: 'May 2024 — July 2024' }, { company: 'YouCode', position: 'PHP/React JS Developer', duration: '2023 — 2024' }, { company: 'YouCode', position: 'Java/Angular Developer', duration: '2024 — present' }], education: [{ ecole: 'Abou Laabass Sabeti', degree: 'Science Baccalaureate', duration: '2022 — 2023' }, { ecole: 'YouCode', degree: 'Full Stack Web Development', duration: '2023 — 2025' }, { ecole: 'NTiC SYBA — OFPPT', degree: 'Full Stack Web Development', duration: '2025 — present' }] },
+    ar: { about: { title: 'نبذة عني', description: 'أنا مطور Full Stack شغوف ولدي خبرة في إنشاء تطبيقات الويب والهاتف.', info: [['الاسم','ياسين العلويشي'],['الهاتف','(+212) 7150 29272'],['الخبرة','سنتان'],['الجنسية','مغربي'],['البريد الإلكتروني','yassinelouissi67@gmail.com'],['اللغات','العربية، الفرنسية، الإنجليزية، الألمانية']] }, experience: [{ company: 'Havet Digitale', position: 'مطور Full Stack', duration: 'ماي 2024 — يوليوز 2024' }, { company: 'YouCode', position: 'مطور PHP/React JS', duration: '2023 — 2024' }, { company: 'YouCode', position: 'مطور Java/Angular', duration: '2024 — الآن' }], education: [{ ecole: 'أبو العباس السبتي', degree: 'بكالوريا علوم', duration: '2022 — 2023' }, { ecole: 'YouCode', degree: 'تطوير الويب Full Stack', duration: '2023 — 2025' }, { ecole: 'NTiC SYBA — OFPPT', degree: 'تطوير الويب Full Stack', duration: '2025 — الآن' }] }
+};
+
 const Resume = () =>{
-    const { t } = usePortfolio()
+    const { t, language } = usePortfolio()
+    const copy = resumeContent[language] || resumeContent.fr
 
     return (
     <motion.div initial={{opacity:0}} animate={{opacity:1,transition:{delay:2.4,duration:0.4,ease:'easeIn'}}}
@@ -167,7 +174,7 @@ const Resume = () =>{
                         <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{t.experienceIntro}</p>
                         <ScrollArea className="h-[400px]">
                             <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
-                                {experiance.items.map((item,index)=>{
+                                {copy.experience.map((item,index)=>{
                                     return(
                                         <li key={index} className='theme-panel border h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 '>
                                             <span className='text-accent'>{item.duration}</span>
@@ -191,7 +198,7 @@ const Resume = () =>{
                         <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{t.educationIntro}</p>
                         <ScrollArea className="h-[400px]">
                             <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
-                                {education.items.map((item,index)=>{
+                                {copy.education.map((item,index)=>{
                                     return(
                                         <li key={index} className='theme-panel border h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 '>
                                             <span className='text-accent'>{item.duration}</span>
@@ -240,12 +247,12 @@ const Resume = () =>{
                 <TabsContent value="à propos" className="w-full text-center xl:text-left">
                     <div className='flex flex-col gap-[30px]'>
                         <h3 className='text-4xl font-bold'>{t.aboutMe}</h3>
-                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{t.aboutIntro}</p>
+                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{copy.about.description}</p>
                         <ul className='grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0'>
-                            {about.info.map((item,index)=>{
+                            {copy.about.info.map((item,index)=>{
                                 return <li key={index}>
-                                    <span className='muted-copy'>{item.fieldName}</span>
-                                    <span className='text-xl'>  {item.fieldValue}</span>
+                                    <span className='muted-copy'>{item[0]}</span>
+                                    <span className='text-xl'>  {item[1]}</span>
 
                                 </li>
                             })}
