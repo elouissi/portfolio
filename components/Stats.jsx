@@ -33,7 +33,7 @@ const Stats = () =>{
                         duration={5} 
                         delay={2} 
                         className="text-4xl xl:text-6xl font-extrabold"/>
-                        <p className={`${item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]" } leading-sung text-white/80 `}>{item.text}</p>
+                        <p className={`${item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]" } leading-sung text-[rgb(var(--muted))] `}>{item.text}</p>
                         </div>)
                 })}
             </div>

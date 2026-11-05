@@ -141,7 +141,9 @@ import {Tabs,TabsContent,TabsList,TabsTrigger} from '@/components/ui/tabs'
 import { Tooltip,TooltipContent,TooltipProvider,TooltipTrigger} from '@/components/ui/tooltip'
 import { ScrollArea} from '@/components/ui/scroll-area';
 import { motion} from 'framer-motion'
+import { usePortfolio } from '@/components/PortfolioProvider'
 const Resume = () =>{
+    const { t } = usePortfolio()
 
     return (
     <motion.div initial={{opacity:0}} animate={{opacity:1,transition:{delay:2.4,duration:0.4,ease:'easeIn'}}}
@@ -152,17 +154,17 @@ const Resume = () =>{
                 className='flex flex-col xl:flex-row xl:w-[1220px] gap-[60px]'
             >
             <TabsList className="flex flex-col w-full max-w-[480px] mx-auto xl:mx-0 gap-6">
-                <TabsTrigger value='experiance'>Expérience</TabsTrigger>
-                <TabsTrigger value='education'>Education</TabsTrigger>
-                <TabsTrigger value='skills'>Skills</TabsTrigger>
-                <TabsTrigger value='à propos'>à propos moi </TabsTrigger>
+                <TabsTrigger value='experiance'>{t.experience}</TabsTrigger>
+                <TabsTrigger value='education'>{t.education}</TabsTrigger>
+                <TabsTrigger value='skills'>{t.skills}</TabsTrigger>
+                <TabsTrigger value='à propos'>{t.aboutMe}</TabsTrigger>
             </TabsList>
 
             <div className='min-h-[70vh] w-full'>
                 <TabsContent value="experiance" >
                 <div className='flex flex-col gap-[30px] text-center xl:text-left   '>
-                        <h3 className='text-4xl font-bold'>{experiance.titre}</h3>
-                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{experiance.Description}</p>
+                        <h3 className='text-4xl font-bold'>{t.myExperience}</h3>
+                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{t.experienceIntro}</p>
                         <ScrollArea className="h-[400px]">
                             <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
                                 {experiance.items.map((item,index)=>{
@@ -185,8 +187,8 @@ const Resume = () =>{
                 </TabsContent>
                 <TabsContent value="education" className="w-full">
                 <div className='flex flex-col gap-[30px] text-center xl:text-left '>
-                        <h3 className='text-4xl font-bold'>{education.titre}</h3>
-                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{education.Description}</p>
+                        <h3 className='text-4xl font-bold'>{t.myEducation}</h3>
+                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{t.educationIntro}</p>
                         <ScrollArea className="h-[400px]">
                             <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
                                 {education.items.map((item,index)=>{
@@ -210,8 +212,8 @@ const Resume = () =>{
                 <TabsContent value="skills" className="w-full">
                     <div className='flex flex-col gap-[30px] text-center xl:text-left'>
                         <div>
-                            <h3 className='text-4xl font-bold' >{skills.titre}</h3>
-                            <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{skills.Description}</p>
+                            <h3 className='text-4xl font-bold' >{t.mySkills}</h3>
+                            <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{t.skillsIntro}</p>
                         </div>
                         <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 '>
                             {skills.skillList.map((skill,index)=>{
@@ -237,8 +239,8 @@ const Resume = () =>{
                 </TabsContent>
                 <TabsContent value="à propos" className="w-full text-center xl:text-left">
                     <div className='flex flex-col gap-[30px]'>
-                        <h3 className='text-4xl font-bold'>{about.titre}</h3>
-                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{about.Description}</p>
+                        <h3 className='text-4xl font-bold'>{t.aboutMe}</h3>
+                        <p className='max-w-[600px] muted-copy mx-auto xl:mx-0'>{t.aboutIntro}</p>
                         <ul className='grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0'>
                             {about.info.map((item,index)=>{
                                 return <li key={index}>

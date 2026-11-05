@@ -29,7 +29,7 @@ const info = [
 ]
 
 const Contact = () => {
-    const { t } = usePortfolio()
+    const { t, language } = usePortfolio()
     const [formData, setFormData] = useState({
         nom: '',
         prenom: '',
@@ -142,10 +142,10 @@ const Contact = () => {
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
-                                        <SelectLabel>selectionner un service</SelectLabel>
-                                        <SelectItem value="web">web developpement</SelectItem>
-                                        <SelectItem value="ui">UI / UX</SelectItem>
-                                        <SelectItem value="logo">Logo Design</SelectItem>
+                                        <SelectLabel>{t.selectService}</SelectLabel>
+                                        <SelectItem value="web">{t.serviceItems[0].title}</SelectItem>
+                                        <SelectItem value="ui">{t.serviceItems[1].title}</SelectItem>
+                                        <SelectItem value="logo">{language === "ar" ? "تصميم الشعار" : language === "en" ? "Logo design" : "Design de logo"}</SelectItem>
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>
